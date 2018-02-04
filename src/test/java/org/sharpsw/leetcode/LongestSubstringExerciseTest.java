@@ -32,4 +32,9 @@ public class LongestSubstringExerciseTest {
     public void testCase004() {
         assertThat(classUnderTest.lengthOfLongestSubstring("pwwkew"), is(3));
     }
+
+    @Test
+    public void testCase005() {
+        assertThat(classUnderTest.lengthOfLongestSubstring("dvdf"), is(3));
+    }
 }
