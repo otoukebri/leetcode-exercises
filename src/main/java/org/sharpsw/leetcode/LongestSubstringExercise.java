@@ -11,19 +11,15 @@ public class LongestSubstringExercise {
             char character = s.charAt(index);
 
             if(buffer.indexOf(String.valueOf(character)) != -1) {
-                int position = s.indexOf(String.valueOf(character), start);
-                index = position;
-                start = position + 1;
+                index = s.indexOf(String.valueOf(character), start) + 1;
+                start = index;
                 buffer = new StringBuilder();
             } else {
+                index++;
                 buffer.append(character);
-                if(buffer.length() > maxLength) {
-                    maxLength = buffer.length();
-                }
+                maxLength = buffer.length() > maxLength ? buffer.length() : maxLength;
             }
-            index++;
         }
-
         return maxLength;
     }
 }
