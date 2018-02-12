@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class LongestSubstringExerciseTest {
-    LongestSubstringExercise classUnderTest;
+    private LongestSubstringExercise classUnderTest;
 
     @Before
     public void setup() {
