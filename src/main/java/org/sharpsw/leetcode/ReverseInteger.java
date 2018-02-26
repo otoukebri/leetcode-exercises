@@ -24,7 +24,7 @@ public class ReverseInteger {
         }
 
         try {
-            return Integer.parseInt(resulting.toString());
+            return Integer.parseInt(resulting);
         } catch (Exception exception) {
             return 0;
         }
