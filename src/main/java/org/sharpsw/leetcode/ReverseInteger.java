@@ -5,10 +5,6 @@ public class ReverseInteger {
         String str = String.valueOf(number);
         boolean flag = str.charAt(0) == '-';
 
-        if(str.length() == 1 || (str.length() == 2 && str.charAt(0) == '-')) {
-            return number;
-        }
-
         String reversed = new StringBuilder(str).reverse().toString();
         StringBuilder cleaned = new StringBuilder();
         int length = reversed.length();
