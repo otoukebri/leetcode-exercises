@@ -1,32 +1,39 @@
 package org.sharpsw.leetcode;
 
+import java.util.stream.IntStream;
+
+import static java.lang.Character.isDigit;
+
 public class CreditCard {
     private static final int MINIMUM_LENGTH = 6;
     private static final int LAST_FINAL_DIGITS_LENGTH = 4;
+    private static final String MASK_CHAR = "#";
 
     public String maskify(String creditCardNumber) {
+        if(creditCardNumber == null) {
+            return "";
+        }
+
         if(creditCardNumber.length() < MINIMUM_LENGTH) {
             return creditCardNumber;
         }
 
-        int maxPosition = creditCardNumber.length() - LAST_FINAL_DIGITS_LENGTH;
-        int index = 0;
-        StringBuilder buffer = new StringBuilder();
-        while(index < maxPosition) {
-            if(index == 0) {
-                buffer.append(creditCardNumber.charAt(0));
-            } else {
-                if(Character.isDigit(creditCardNumber.charAt(index))) {
-                    buffer.append("#");
-                } else {
-                    buffer.append(creditCardNumber.charAt(index));
-                }
-            }
-            index++;
-        }
-
-        buffer.append(creditCardNumber.substring(maxPosition, creditCardNumber.length()));
-        return buffer.toString();
+        StringBuilder maskedCard = new StringBuilder().append(creditCardNumber.charAt(0));
+        maskedCard.append(performMask(creditCardNumber.substring(1, creditCardNumber.length() - LAST_FINAL_DIGITS_LENGTH)));
+        maskedCard.append(creditCardNumber.substring(creditCardNumber.length() - LAST_FINAL_DIGITS_LENGTH, creditCardNumber.length()));
+        return maskedCard.toString();
     }
 
+    private String performMask(String creditCardNumber) {
+        StringBuilder buffer = new StringBuilder();
+        IntStream.range(0, creditCardNumber.length()).forEach(index -> {
+            char digit = creditCardNumber.charAt(index);
+            if (isDigit(digit)) {
+                buffer.append(MASK_CHAR);
+            } else {
+                buffer.append(digit);
+            }
+        });
+        return buffer.toString();
+    }
 }
