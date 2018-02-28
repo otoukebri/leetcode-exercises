@@ -10,11 +10,7 @@ public class CreditCard {
     private static final String MASK_CHAR = "#";
 
     public String maskify(String creditCardNumber) {
-        if(creditCardNumber == null) {
-            return "";
-        }
-
-        if(creditCardNumber.length() < MINIMUM_LENGTH) {
+        if(!isValidCreditCardNumber(creditCardNumber) {
             return creditCardNumber;
         }
 
@@ -22,6 +18,10 @@ public class CreditCard {
         maskedCard.append(performMask(creditCardNumber.substring(1, creditCardNumber.length() - LAST_FINAL_DIGITS_LENGTH)));
         maskedCard.append(creditCardNumber.substring(creditCardNumber.length() - LAST_FINAL_DIGITS_LENGTH, creditCardNumber.length()));
         return maskedCard.toString();
+    }
+
+    private boolean isValidCreditCardNumber(String creditCardNumber) {
+        return creditCardNumber != null && creditCardNumber.length() >= MINIMUM_LENGTH;
     }
 
     private String performMask(String creditCardNumber) {
