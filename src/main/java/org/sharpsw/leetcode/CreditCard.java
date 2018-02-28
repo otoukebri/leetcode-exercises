@@ -10,7 +10,7 @@ public class CreditCard {
     private static final String MASK_CHAR = "#";
 
     public String maskify(String creditCardNumber) {
-        if(!isValidCreditCardNumber(creditCardNumber) {
+        if(!isValidCreditCardNumber(creditCardNumber)) {
             return creditCardNumber;
         }
 
