@@ -1,5 +1,8 @@
 package org.sharpsw.leetcode;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class NumberToOrdinal {
 
     public String numberToOrdinal(Integer number) {
@@ -30,7 +33,10 @@ public class NumberToOrdinal {
     }
 
     private boolean isFinishedBetween11And19(Integer number) {
+        String expression = "1[1-9]$";
         String strNum = Integer.toString(number);
-        return strNum.length() > 1 && strNum.substring(strNum.length() - 2).charAt(0) == '1';
+        Pattern pattern = Pattern.compile(expression);
+        Matcher matcher = pattern.matcher(strNum);
+        return matcher.find();
     }
 }
