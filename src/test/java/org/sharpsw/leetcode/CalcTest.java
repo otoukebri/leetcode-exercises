@@ -57,4 +57,9 @@ public class CalcTest {
     public void handleNullExpression() {
         assertEquals(0, calc.evaluate(null), 0);
     }
+
+    @Test
+    public void handleExpressionWithMathOperationOnly() {
+        assertEquals(0, calc.evaluate("+"), 0);
+    }
 }

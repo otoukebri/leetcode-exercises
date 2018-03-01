@@ -1,7 +1,8 @@
 package org.sharpsw.leetcode;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
-import java.util.StringTokenizer;
 
 public class Calc {
     public double evaluate(String expr) {
@@ -9,22 +10,21 @@ public class Calc {
             return 0;
         }
 
-        StringTokenizer tokenizer = new StringTokenizer(expr);
         Stack<Double> numbers = new Stack<>();
+        String[] tokens = expr.split(" ");
+        List<String> digits = Arrays.asList(tokens);
 
-        while(tokenizer.hasMoreTokens()) {
-            String token = tokenizer.nextToken();
-
-            if(Character.isDigit(token.charAt(0))) {
-                numbers.push(Double.parseDouble(token));
+        digits.forEach(digit -> {
+            if(Character.isDigit(digit.charAt(0))) {
+                numbers.push(Double.parseDouble(digit));
             } else {
                 // Found an operator
                 Double secondNumber = numbers.pop();
                 Double firstNumber = numbers.pop();
-                Double result = applyMathOperation(firstNumber, secondNumber, token);
+                Double result = applyMathOperation(firstNumber, secondNumber, digit);
                 numbers.push(result);
             }
-        }
+        });
         return numbers.pop();
     }
 
@@ -40,6 +40,10 @@ public class Calc {
 
     private boolean isValidExpression(String expr) {
         if(expr == null || expr.isEmpty()) {
+            return false;
+        }
+
+        if(expr.length() == 1 && (expr.charAt(0) == '+' || expr.charAt(0) == '-' || expr.charAt(0) == '/' || expr.charAt(0) == '*')) {
             return false;
         }
         return true;
