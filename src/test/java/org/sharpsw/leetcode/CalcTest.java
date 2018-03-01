@@ -52,4 +52,9 @@ public class CalcTest {
     public void shouldSupportEmptyExpr() {
         assertEquals(0, calc.evaluate(""), 0);
     }
+
+    @Test
+    public void handleNullExpression() {
+        assertEquals(0, calc.evaluate(null), 0);
+    }
 }

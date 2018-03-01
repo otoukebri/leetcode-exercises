@@ -5,7 +5,7 @@ import java.util.StringTokenizer;
 
 public class Calc {
     public double evaluate(String expr) {
-        if(expr.isEmpty()) {
+        if(!isValidExpression(expr)) {
             return 0;
         }
 
@@ -36,5 +36,12 @@ public class Calc {
             case "*": return firstNumber * secondNumber;
             default: return 0.0;
         }
+    }
+
+    private boolean isValidExpression(String expr) {
+        if(expr == null || expr.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
