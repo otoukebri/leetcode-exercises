@@ -38,4 +38,9 @@ public class HighestSiblingTest {
     public void testCase005() {
         assertThat(service.solution(355), is(553));
     }
+
+    @Test
+    public void testCase006() {
+        assertThat(service.solution(10000), is(10000));
+    }
 }
