@@ -37,13 +37,13 @@ public class RemoveNthFromListTest {
     @Test
     public void shouldSupportSingleItemList() {
         ListNode root = new ListNode(9);
-        assertThat(service.removeNthFromEnd(root, 0), nullValue());
+        assertThat(service.removeNthFromEnd(root, 1), nullValue());
     }
 
     @Test
     public void shouldSupportSingleItemListInvalidPosition() {
         ListNode root = new ListNode(9);
-        ListNode result = service.removeNthFromEnd(root, 1);
+        ListNode result = service.removeNthFromEnd(root, 2);
         assertThat(result, notNullValue());
         assertThat(result.val, is(9));
         assertThat(result.next, nullValue());
@@ -61,7 +61,7 @@ public class RemoveNthFromListTest {
         assertThat(result, notNullValue());
         assertThat(result.val, is(9));
         assertThat(result.next, notNullValue());
-        assertThat(result.next.val, is(11));
+        assertThat(result.next.val, is(10));
     }
 
     @Test
@@ -81,6 +81,6 @@ public class RemoveNthFromListTest {
         item6.next = item7;
 
         ListNode result = service.removeNthFromEnd(item1, 1);
-        assertThat(printList(result), is("9-10-11-12-13-15"));
+        assertThat(printList(result), is("9-10-11-12-13-14"));
     }
 }
