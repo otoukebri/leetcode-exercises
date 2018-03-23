@@ -33,4 +33,19 @@ public class RemoveNthFromListTest {
         assertThat(result.val, is(9));
         assertThat(result.next, nullValue());
     }
+
+    @Test
+    public void removeMiddleElementOK() {
+        ListNode root = new ListNode(9);
+        ListNode second = new ListNode(10);
+        ListNode third = new ListNode(11);
+        root.next = second;
+        second.next = third;
+
+        ListNode result = service.removeNthFromEnd(root, 1);
+        assertThat(result, notNullValue());
+        assertThat(result.val, is(9));
+        assertThat(result.next, notNullValue());
+        assertThat(result.next.val, is(11));
+    }
 }

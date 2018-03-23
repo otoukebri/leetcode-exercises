@@ -34,7 +34,7 @@ public class RemoveNthFromList {
         ListNode node = head;
         int index = 0;
 
-        while(index++ < position) {
+        while(index++ < position - 1) {
             node = node.next;
         }
 
