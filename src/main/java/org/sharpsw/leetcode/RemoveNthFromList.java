@@ -4,7 +4,7 @@ public class RemoveNthFromList {
     public ListNode removeNthFromEnd(ListNode head, int n) {
         if(head != null) {
             int length = calculateLength(head);
-            int positionToRemove = length - n - 1;
+            int positionToRemove = length - n;
             if(positionToRemove < 0) {
                 return head;
             }
