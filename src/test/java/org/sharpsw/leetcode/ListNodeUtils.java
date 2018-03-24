@@ -16,18 +16,18 @@ public class ListNodeUtils {
         return counter;
     }
 
-    public static Integer stringifyContents(ListNode root) {
-        StringBuilder buffer = new StringBuilder();
+    public static Integer getValue(ListNode root) {
+        String result = "";
         if(root == null) {
             return 0;
         }
 
         ListNode node = root;
         while(node != null) {
-            buffer.append(node.val);
+            result = node.val + result;
             node = node.next;
         }
 
-        return Integer.valueOf(buffer.toString());
+        return Integer.valueOf(result);
     }
 }
