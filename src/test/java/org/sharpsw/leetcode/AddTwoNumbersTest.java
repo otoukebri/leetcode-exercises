@@ -23,15 +23,29 @@ public class AddTwoNumbersTest {
 
         assertThat(result, notNullValue());
         assertThat(ListNodeUtils.getLength(result), is(1));
-        assertThat(ListNodeUtils.stringifyContents(result), is("3"));
+        assertThat(ListNodeUtils.stringifyContents(result), is(3));
     }
 
     @Test
     public void addEmptyLists() {
-        ListNode root1 = null;
-        ListNode root2 = null;
-        ListNode result = cut.addTwoNumbers(root1, root2);
+        ListNode result = cut.addTwoNumbers(null, null);
 
         assertThat(result, nullValue());
     }
+
+    @Test
+    public void addWithOneNullList() {
+        ListNode root1 = new ListNode(5);
+        ListNode result = cut.addTwoNumbers(root1, null);
+
+        assertThat(result, notNullValue());
+        assertThat(ListNodeUtils.getLength(result), is(1));
+        assertThat(ListNodeUtils.stringifyContents(result), is(5));
+    }
+
+    @Test
+    public void addTwoNodeLists() {
+
+    }
+
 }

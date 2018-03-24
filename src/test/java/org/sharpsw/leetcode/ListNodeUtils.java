@@ -16,22 +16,18 @@ public class ListNodeUtils {
         return counter;
     }
 
-    public static String stringifyContents(ListNode root) {
+    public static Integer stringifyContents(ListNode root) {
         StringBuilder buffer = new StringBuilder();
         if(root == null) {
-            return buffer.toString();
+            return 0;
         }
 
         ListNode node = root;
         while(node != null) {
             buffer.append(node.val);
-            if(node.next != null) {
-                buffer.append("-");
-            }
-
             node = node.next;
         }
 
-        return buffer.toString();
+        return Integer.valueOf(buffer.toString());
     }
 }
