@@ -13,8 +13,7 @@ public class PhoneLetterCombinations {
         List<String> results = new ArrayList<>();
         if(!items.isEmpty()) {
             results.addAll(items.remove(0));
-            for (int i = 0, itemsSize = items.size(); i < itemsSize; i++) {
-                List<String> item = items.get(i);
+            for (List<String> item : items) {
                 results = performCombinations(results, item);
             }
         }
