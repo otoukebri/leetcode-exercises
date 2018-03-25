@@ -30,4 +30,20 @@ public class ListNodeUtils {
 
         return Integer.valueOf(result);
     }
+
+    public static String mkString(ListNode root) {
+        StringBuilder buffer = new StringBuilder();
+
+        if(root == null) {
+            return "";
+        }
+
+        ListNode node = root;
+        while(node != null) {
+            buffer.append(node.val).append(" ");
+            node = node.next;
+        }
+
+        return buffer.toString().trim();
+    }
 }
