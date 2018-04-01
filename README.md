@@ -21,4 +21,4 @@ to keep up with the language and learn how to use the Scala test library as well
 
 ## Versions
 
-* 1.0.0 (04/01/2018) - Initial version.
+* 1.0.4.0 (04/01/2018) - Initial version.
