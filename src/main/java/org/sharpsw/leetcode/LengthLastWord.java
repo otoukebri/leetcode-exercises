@@ -2,8 +2,8 @@ package org.sharpsw.leetcode;
 
 public class LengthLastWord {
     public int lengthOfLastWord(String s) {
-        if(s == null || s.length() == 0) {
-            return 0;
+        if(s == null) {
+            throw new IllegalArgumentException("Input argument cannot be null");
         }
 
         String[] words = s.split("\\s+");
