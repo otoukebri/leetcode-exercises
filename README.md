@@ -20,6 +20,7 @@ to keep up with the language and learn how to use the Scala test library as well
 * Valid parentheses
 
 ## Versions
+* 1.0.5.1 (04/13/2018) - Added Travis-CI support.
 
 * 1.0.5.0 (04/05/2018) - Improved exception handling for length of last word exercise.
 
